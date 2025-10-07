@@ -18,7 +18,7 @@ To build the APK from the source code, you will need [Android Studio](https://de
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/pasquale777361/Kali-frontend.apk.git
+    git clone <repository-url>
     ```
 
 2.  **Open the project in Android Studio:**

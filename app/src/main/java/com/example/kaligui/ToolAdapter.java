@@ -14,14 +14,20 @@ public class ToolAdapter extends RecyclerView.Adapter<ToolAdapter.ToolViewHolder
 
     private List<Tool> toolList;
     private OnToolClickListener onToolClickListener;
+    private OnToolLongClickListener onToolLongClickListener;
 
     public interface OnToolClickListener {
         void onToolClick(Tool tool);
     }
 
-    public ToolAdapter(List<Tool> toolList, OnToolClickListener onToolClickListener) {
+    public interface OnToolLongClickListener {
+        void onToolLongClick(Tool tool);
+    }
+
+    public ToolAdapter(List<Tool> toolList, OnToolClickListener onToolClickListener, OnToolLongClickListener onToolLongClickListener) {
         this.toolList = toolList;
         this.onToolClickListener = onToolClickListener;
+        this.onToolLongClickListener = onToolLongClickListener;
     }
 
     @NonNull
@@ -37,6 +43,10 @@ public class ToolAdapter extends RecyclerView.Adapter<ToolAdapter.ToolViewHolder
         holder.toolName.setText(tool.getName());
         holder.toolDescription.setText(tool.getDescription());
         holder.itemView.setOnClickListener(v -> onToolClickListener.onToolClick(tool));
+        holder.itemView.setOnLongClickListener(v -> {
+            onToolLongClickListener.onToolLongClick(tool);
+            return true;
+        });
     }
 
     @Override

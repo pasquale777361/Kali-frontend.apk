@@ -40,21 +40,55 @@
         android:layout_centerHorizontal="true"
         android:visibility="gone" />
 
+    <LinearLayout
+        android:id="@+id/system_buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress_bar"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/update_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android.text="Update" />
+
+        <Button
+            android:id="@+id/upgrade_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android.text="Upgrade" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/manual_command_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/system_buttons_layout"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/manual_command"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter custom command" />
+
+        <Button
+            android:id="@+id/run_manual_command_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android.text="Run" />
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tools_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/progress_bar" />
-
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Output will be shown here"
-        android:maxLines="10"
-        android:scrollbars="vertical"
-        android:background="#f0f0f0"
-        android:padding="8dp"/>
+        android:layout_below="@id/manual_command_layout"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
